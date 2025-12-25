@@ -18,18 +18,18 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amr-malak.netlify.app"),
+  metadataBase: new URL("https://amr-malak.digitivaa.com"),
   title: "Welcome to Our Beginning",
   description: "Celebrating the start of our journey together",
   generator: "Digitiva",
   openGraph: {
-    url: "https://amr-malak.netlify.app/",
+    url: "https://amr-malak.digitivaa.com/",
     type: "website",
     title: "Welcome to Our Beginning",
     description: "Celebrating the start of our journey together",
     images: [
       {
-        url: "https://amr-malak.netlify.app/invitation-design.png",
+        url: "https://amr-malak.digitivaa.com/invitation-design.png",
         width: 1200,
         height: 630,
         alt: "Amr & Malak Engagement Invitation",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Welcome to Our Beginning",
     description: "Celebrating the start of our journey together",
-    images: ["https://amr-malak.netlify.app/invitation-design.png"],
+    images: ["https://amr-malak.digitivaa.com/invitation-design.png"],
   },
   icons: {
     icon: "/invitation-design.png",
@@ -57,13 +57,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ Open Graph tags for Facebook & WhatsApp previews */}
-        <meta property="og:url" content="https://amr-malak.netlify.app/" />
+        <meta property="og:url" content="https://amr-malak.digitivaa.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Welcome to Our Beginning" />
         <meta property="og:description" content="Celebrating the start of our journey together" />
         <meta
           property="og:image"
-          content="https://amr-malak.netlify.app/invitation-design.png"
+          content="https://amr-malak.digitivaa.com/invitation-design.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -74,7 +74,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Welcome to Our Beginning" />
         <meta name="twitter:description" content="Celebrating the start of our journey together" />
-        <meta name="twitter:image" content="https://amr-malak.netlify.app/invitation-design.png" />
+        <meta name="twitter:image" content="https://amr-malak.digitivaa.com/invitation-design.png" />
 
         {/* Preload critical images for immediate loading */}
         <link
