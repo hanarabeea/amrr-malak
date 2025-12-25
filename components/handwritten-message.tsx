@@ -537,23 +537,23 @@ export default function HandwrittenMessage() {
           <p className="text-gray-600 text-center mb-4 select-none">{t('writeUsDescription')}</p>
           <div className="w-20 h-1 bg-accent mx-auto mb-6 select-none"></div>
           
-          <div className="bg-white/90 p-6 md:p-8 rounded-lg shadow-lg select-none">
+          <div className="bg-white/90 p-4 md:p-8 rounded-lg shadow-lg select-none overflow-hidden">
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-6 select-none">
               {t('yourMessage')}...
             </p>
             
             {/* Pen Options */}
             <div className="mb-6">
-              <div className="flex flex-wrap gap-4 justify-center mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700">{t('color')}:</span>
+              <div className="flex flex-wrap gap-3 md:gap-4 justify-center mb-4">
+                <div className="flex items-center gap-2 flex-wrap justify-center">
+                  <span className="text-xs md:text-sm font-medium text-gray-700 whitespace-nowrap">{t('color')}:</span>
                   <div className="flex gap-1">
                     {penColors.map((pen) => (
                       <button
                         key={pen.color}
                         type="button"
                         onClick={() => setCurrentColor(pen.color)}
-                        className={`w-8 h-8 rounded-full border-2 ${
+                        className={`w-7 h-7 md:w-8 md:h-8 rounded-full border-2 ${
                           currentColor === pen.color ? 'border-gray-800' : 'border-gray-300'
                         }`}
                         style={{ backgroundColor: pen.color }}
@@ -563,15 +563,15 @@ export default function HandwrittenMessage() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700">{t('width')}:</span>
-                  <div className="flex gap-2">
+                <div className="flex items-center gap-2 flex-wrap justify-center">
+                  <span className="text-xs md:text-sm font-medium text-gray-700 whitespace-nowrap">{t('width')}:</span>
+                  <div className="flex gap-1 md:gap-2 flex-wrap justify-center">
                     {penWidths.map((pen) => (
                       <button
                         key={pen.width}
                         type="button"
                         onClick={() => setCurrentWidth(pen.width)}
-                        className={`px-3 py-1 text-sm rounded-md transition-colors ${
+                        className={`px-2 py-1 md:px-3 text-xs md:text-sm rounded-md transition-colors whitespace-nowrap ${
                           currentWidth === pen.width
                             ? 'bg-accent text-white'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -585,13 +585,13 @@ export default function HandwrittenMessage() {
               </div>
               
               {/* Current Tool Display */}
-              <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
+              <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs md:text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <div 
-                    className="w-4 h-4 rounded-full border border-gray-300"
+                    className="w-3 h-3 md:w-4 md:h-4 rounded-full border border-gray-300"
                     style={{ backgroundColor: currentColor }}
                   />
-                  <span>{t('current')}: {penColors.find(p => p.color === currentColor)?.name}</span>
+                  <span className="whitespace-nowrap">{t('current')}: {penColors.find(p => p.color === currentColor)?.name}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div 
@@ -601,7 +601,7 @@ export default function HandwrittenMessage() {
                       height: currentWidth * 2 
                     }}
                   />
-                  <span>{t('size')}: {penWidths.find(p => p.width === currentWidth)?.name}</span>
+                  <span className="whitespace-nowrap">{t('size')}: {penWidths.find(p => p.width === currentWidth)?.name}</span>
                 </div>
               </div>
             </div>
@@ -634,25 +634,25 @@ export default function HandwrittenMessage() {
               />
             </div>
 
-            <form onSubmit={sendEmail} className="space-y-4">
-              <div className="mb-4">
+            <form onSubmit={sendEmail} className="space-y-4 w-full">
+              <div className="mb-4 w-full">
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t('yourName')}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
                   required
                 />
-                <p className="text-sm text-gray-500 mt-2">{t('writeUsDescription')}</p>
+                <p className="text-xs md:text-sm text-gray-500 mt-2">{t('writeUsDescription')}</p>
               </div>
               
-              <div className="flex justify-between items-center pt-2">
-                <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-2">
+                <div className="flex gap-2 flex-1 sm:flex-initial">
                   <button
                     type="button"
                     onClick={undoLastStroke}
-                    className="px-6 py-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors font-medium disabled:opacity-50"
+                    className="flex-1 sm:flex-initial px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors font-medium disabled:opacity-50"
                     disabled={isSending || history.length === 0}
                   >
                     {t('undo')}
@@ -660,7 +660,7 @@ export default function HandwrittenMessage() {
                   <button
                     type="button"
                     onClick={clearCanvas}
-                    className="px-6 py-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors font-medium"
+                    className="flex-1 sm:flex-initial px-4 md:px-6 py-2 md:py-3 text-sm md:text-base text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors font-medium"
                     disabled={isSending}
                   >
                     {t('clearDrawing')}
@@ -668,7 +668,7 @@ export default function HandwrittenMessage() {
                 </div>
                 <button
                   type="submit"
-                  className="px-8 py-3 text-white bg-accent rounded-md hover:bg-accent/90 disabled:opacity-50 transition-colors font-medium whitespace-nowrap"
+                  className="w-full sm:w-auto px-6 md:px-8 py-2 md:py-3 text-sm md:text-base text-white bg-accent rounded-md hover:bg-accent/90 disabled:opacity-50 transition-colors font-medium whitespace-nowrap"
                   disabled={isSending}
                 >
                   {isSending ? t('sendingMessage') : t('sendMessage')}
